@@ -105,10 +105,7 @@ body {
     color: white;
 }
 h1 {
-    color: transparent;
-    font-weight: 900;
-    -webkit-text-fill-color: ; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1px;
+    font-family: 'Arvo', serif; 
     -webkit-text-stroke-color: white;
 }
 header img {
@@ -143,9 +140,18 @@ nav {
 .nav li:hover, .nav li a:hover {
     background-color: transparent;
 }
+.nav>li>a:hover,
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
 .social {
-    display: inline-block;
+    /*display: inline-block;*/
     float: right;
+    list-style: none
+}
+.social>li {
+    float: left;
 }
 .df {
     font-size: 5em;
@@ -159,11 +165,7 @@ nav {
     background-repeat: no-repeat;
 }
 .jumbotron h1 {
-    color: transparent;
-    font-weight: 900;
-    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: white;  
+
 }
 footer {
     display: block;
@@ -286,7 +288,7 @@ footer {
         background-size: 800px 127px; 
     }
     .jumbotron h1 {
-        -webkit-text-stroke-width: .6px;
+        /*-webkit-text-stroke-width: .6px;*/
     }
 }
 @media (max-width: 550px){
