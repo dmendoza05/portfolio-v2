@@ -148,11 +148,14 @@ nav {
 .social {
     /*display: inline-block;*/
     float: right;
-    list-style: none
+    list-style: none;
+    margin-top: 6px;
 }
 .social>li {
     float: left;
+    margin-right: 10px;
 }
+
 .df {
     font-size: 5em;
 }
@@ -164,8 +167,10 @@ nav {
     background-size: 1300px 206px;
     background-repeat: no-repeat;
 }
-.jumbotron h1 {
-
+.df{
+    fill: none;
+    stroke-width: 1;
+    stroke-dasharray: 70 330;
 }
 footer {
     display: block;
@@ -290,9 +295,18 @@ footer {
     .jumbotron h1 {
         /*-webkit-text-stroke-width: .6px;*/
     }
+    .social {
+        margin-top: 8px;
+    }
+    .social>li img {
+        width: 22px;
+    }
 }
 @media (max-width: 550px){
-
+    .container{
+        padding-left: 0; 
+        padding-right: 0; 
+    }
     .jumbotron {
         background-size: 500px 79px;
     }
