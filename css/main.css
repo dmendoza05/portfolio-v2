@@ -166,6 +166,7 @@ nav {
     background-position: 50% 100%;
     background-size: 1300px 206px;
     background-repeat: no-repeat;
+    /*margin-top: 8vh;*/
 }
 .df{
     fill: none;
