@@ -1,0 +1,31 @@
+{
+  "name": "Portfolio_ver2",
+  "version": "1.0.0",
+  "description": "Creating my new personal site/portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmendoza05/portfolio-v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmendoza05/portfolio-v2/issues"
+  },
+  "homepage": "https://github.com/dmendoza05/portfolio-v2#readme",
+  "devDependencies": {
+    "angular": "^1.6.1",
+    "webpack": "^1.14.0",
+    "angular-ui-router": "^0.3.2"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "webpack": "^1.14.0",
+    "angular-ui-router": "^0.3.2"
+  }
+}
