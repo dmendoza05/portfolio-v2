@@ -20,12 +20,18 @@
   "homepage": "https://github.com/dmendoza05/portfolio-v2#readme",
   "devDependencies": {
     "angular": "^1.6.1",
+    "angular-css": "^1.0.8",
+    "angular-ui-router": "^0.3.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "grunt-webpack": "^1.0.18",
     "webpack": "^1.14.0",
-    "angular-ui-router": "^0.3.2"
+    "webpack-load-plugins": "^0.1.2"
   },
   "dependencies": {
     "angular": "^1.6.1",
+    "angular-ui-router": "^0.3.2",
+    "extract-text-webpack-plugin": "^1.0.1",
     "webpack": "^1.14.0",
-    "angular-ui-router": "^0.3.2"
+    "webpack-load-plugins": "^0.1.2"
   }
 }

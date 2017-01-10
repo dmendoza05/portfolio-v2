@@ -1,13 +1,21 @@
+var path = require('path');
 var webpack = require('webpack');
+var plugins = require('webpack-load-plugins')();
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
-  context: __dirname + '/js',
+  context: path.join(__dirname + '/js'),
   entry: {
     app: './main.js',
-    vendor: ['angular', 'angular-ui-router']
+    vendor: [
+              'angular', 
+              'angular-ui-router', 
+              'angular-css'
+            ]
   },
   output: {
-    path: __dirname + '/js',
-    filename: 'main.bundle.js'
+    filename: 'main.bundle.js',
+    path: path.join(__dirname + '/js')
   },
   module: {
     loaders: [

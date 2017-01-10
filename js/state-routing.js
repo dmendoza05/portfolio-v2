@@ -1,6 +1,40 @@
 'use strict';
 
-var angular = require('angular');
+StateRouting.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-angular
-  .module('portfolioV2', ['ui.router'])
+function StateRouting($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+
+    // HOME STATES AND NESTED VIEWS ========================================
+    .state('main', {
+      url: '/',
+      templateUrl: 'main_page/index-view.html',
+      css: 'main_page/index-view.css',
+      controller: 'MainPageController',
+      controllerAs: 'mainPageCtrl'
+    })
+    .state('portfolio', {
+      url: '/portfolio',
+      templateUrl: 'portfolio/index-view.html',
+      css: 'portfolio/index-view.css',
+      // controller: 'PortfolioController',
+      // controllerAs: 'portfolioCtrl'
+    })
+    .state('resume', {
+      url: '/resume',
+      templateUrl: 'resume/index-view.html',
+      css: 'resume/index-view.css',
+      // controller: 'PortfolioController',
+      // controllerAs: 'portfolioCtrl'
+    })
+    // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+    // .state('about', {
+      // we'll get to this in a bit       
+    // });
+
+  };
+
+module.exports = StateRouting;
