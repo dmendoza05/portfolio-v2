@@ -11,7 +11,7 @@ webpackJsonp([0],[
 	  // controllers
 	  .controller('MainPageController', __webpack_require__(4))
 	  // directives
-	  .directive('navBar', __webpack_require__(5));
+	  .directive('navSquare', __webpack_require__(5));
 
 
 /***/ },
@@ -83,26 +83,29 @@ webpackJsonp([0],[
 
 	'use strict';
 
-	navBarDirective.$inject = [];
+	navSquareDirective.$inject = [];
 
-	function navBarDirective() {
+	function navSquareDirective() {
 	  return {
 	    restrict: 'E',
 	    scope: 'true',
-	    templateUrl: './js/navbar-directive/index-view.html',
-	    css: './js/navbar-directive/index-view.css',
-	    // bindToController: '',
-	    // controller: navBarController,
+	    templateUrl: './js/nav-square-directive/index-view.html',
+	    css: './js/nav-square-directive/index-view.css',
 	    link: function(scope, el, attr) {
+
+	      scope.hoveredItem = ''
+
+	      scope.hover = function(pos) {
+	        scope.hoveredItem = pos;
+	      }
+	      scope.leaveHover = function() {
+	        scope.hoveredItem = '';
+	      }
 	    }
 	  }
 	};
 
-	// function navBarController() {
-	//   var navCtrl = this;
-	// };
-
-	module.exports = navBarDirective;
+	module.exports = navSquareDirective;
 
 
 /***/ }

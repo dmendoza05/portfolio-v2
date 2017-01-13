@@ -7,4 +7,4 @@ angular
   // controllers
   .controller('MainPageController', require('../main_page/index'))
   // directives
-  .directive('navBar', require('./navbar-directive/index'));
+  .directive('navSquare', require('./nav-square-directive/index'));

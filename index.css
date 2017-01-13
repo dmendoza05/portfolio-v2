@@ -14,3 +14,8 @@ body {
   background-color: #000;
   overflow: hidden;
 }
+
+body{
+  background-image: url('https://unsplash.it/2100/2300/?random');
+  background-size: cover;
+}
