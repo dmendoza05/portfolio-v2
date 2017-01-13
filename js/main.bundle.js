@@ -83,9 +83,9 @@ webpackJsonp([0],[
 
 	'use strict';
 
-	navSquareDirective.$inject = [];
+	navSquareDirective.$inject = ['$state'];
 
-	function navSquareDirective() {
+	function navSquareDirective($state) {
 	  return {
 	    restrict: 'E',
 	    scope: 'true',
@@ -100,6 +100,10 @@ webpackJsonp([0],[
 	      }
 	      scope.leaveHover = function() {
 	        scope.hoveredItem = '';
+	      }
+
+	      scope.goToPage = function(page) {
+	        $state.go(page);
 	      }
 	    }
 	  }

@@ -1,8 +1,8 @@
 'use strict';
 
-navSquareDirective.$inject = [];
+navSquareDirective.$inject = ['$state'];
 
-function navSquareDirective() {
+function navSquareDirective($state) {
   return {
     restrict: 'E',
     scope: 'true',
@@ -17,6 +17,10 @@ function navSquareDirective() {
       }
       scope.leaveHover = function() {
         scope.hoveredItem = '';
+      }
+
+      scope.goToPage = function(page) {
+        $state.go(page);
       }
     }
   }
