@@ -29,6 +29,8 @@ nav {
   overflow: hidden;
   transform: scale(1);
   transition: all 1s;
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
 }
 
 .nav-item-content-container > .nav-item-content {
@@ -41,7 +43,7 @@ nav {
 .nav-item-content-container:hover  {
   /*border-radius: 50%;*/
   animation: flash 0.2s;
-  transform: scale(1.1);
+  /*transform: scale(1.1);*/
 }
 
 

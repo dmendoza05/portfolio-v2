@@ -1,8 +1,8 @@
 'use strict';
 
-navSquareDirective.$inject = ['$state'];
+navSquareDirective.$inject = ['$state', '$http', 'UnsplashApiService'];
 
-function navSquareDirective($state) {
+function navSquareDirective($state, $http, UnsplashApiService) {
   return {
     restrict: 'E',
     scope: 'true',
@@ -14,14 +14,21 @@ function navSquareDirective($state) {
 
       scope.hover = function(pos) {
         scope.hoveredItem = pos;
-      }
+      };
       scope.leaveHover = function() {
         scope.hoveredItem = '';
-      }
+      };
 
       scope.goToPage = function(page) {
         $state.go(page);
-      }
+      };
+
+      scope.changeBackground = function() {
+        UnsplashApiService.getRandomPhotosByCollection('499759')
+          .then(function(response) {
+            document.body.style.backgroundImage = 'url(' + response.urls.full + ')';
+          })
+      };
     }
   }
 };

@@ -10,8 +10,10 @@ webpackJsonp([0],[
 	  .config(__webpack_require__(3))
 	  // controllers
 	  .controller('MainPageController', __webpack_require__(4))
+	  // services
+	  .service('UnsplashApiService', __webpack_require__(5))
 	  // directives
-	  .directive('navSquare', __webpack_require__(5));
+	  .directive('navSquare', __webpack_require__(6));
 
 
 /***/ },
@@ -83,9 +85,59 @@ webpackJsonp([0],[
 
 	'use strict';
 
-	navSquareDirective.$inject = ['$state'];
+	UnsplashApiService.$inject = ['$http', '$q'];
 
-	function navSquareDirective($state) {
+	function UnsplashApiService($http, $q) {
+	  var _this = this;
+	  var unsplashData = {};
+
+	  function apiCall(urlParam, objParam) {
+	    if (!objParam) {
+	      objParam = null;
+	    };
+
+	    return $http
+	      .get('https://api.unsplash.com/' + urlParam + '?client_id=4d644dd28e25112b02fe164d500714b8cd5cc5a6adac9c94cf73c8f0114f9d7a',
+	        objParam);
+	  }
+
+	  _this.getRandomPhoto = function() {
+	    return apiCall('photos/random');
+	  };
+
+	  _this.getRandomPhotosByCollection = function(collectionId) {
+	    return apiCall('collections/' + collectionId + '/photos')
+	      .then(function(response) {
+	        console.log(response);
+	        if (typeof response.data === 'object') {
+	          var randomInt = Math.floor(Math.random() * (response.data.length - 0) + 0);
+	                  
+	          return response.data[randomInt];
+	        } else {
+	          console.log('getRandomPhotosByCollection error');
+	          return $q.reject(response.data);
+	        }
+	      }, function(response) {
+	        console.log('getRandomPhotosByCollection error');
+	        return $q.reject(response.data);
+	      });
+	  };
+
+	};
+
+	module.exports = UnsplashApiService;
+
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	navSquareDirective.$inject = ['$state', '$http', 'UnsplashApiService'];
+
+	function navSquareDirective($state, $http, UnsplashApiService) {
 	  return {
 	    restrict: 'E',
 	    scope: 'true',
@@ -97,20 +149,26 @@ webpackJsonp([0],[
 
 	      scope.hover = function(pos) {
 	        scope.hoveredItem = pos;
-	      }
+	      };
 	      scope.leaveHover = function() {
 	        scope.hoveredItem = '';
-	      }
+	      };
 
 	      scope.goToPage = function(page) {
 	        $state.go(page);
-	      }
+	      };
+
+	      scope.changeBackground = function() {
+	        UnsplashApiService.getRandomPhotosByCollection('499759')
+	          .then(function(response) {
+	            document.body.style.backgroundImage = 'url(' + response.urls.full + ')';
+	          })
+	      };
 	    }
 	  }
 	};
 
 	module.exports = navSquareDirective;
-
 
 /***/ }
 ]);

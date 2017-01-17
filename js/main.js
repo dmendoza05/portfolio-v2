@@ -6,5 +6,7 @@ angular
   .config(require('./state-routing'))
   // controllers
   .controller('MainPageController', require('../main_page/index'))
+  // services
+  .service('UnsplashApiService', require('./services/unsplash-api-service'))
   // directives
   .directive('navSquare', require('./nav-square-directive/index'));
