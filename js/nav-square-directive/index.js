@@ -22,13 +22,6 @@ function navSquareDirective($state, $http, UnsplashApiService) {
       scope.goToPage = function(page) {
         $state.go(page);
       };
-
-      scope.changeBackground = function() {
-        UnsplashApiService.getRandomPhotosByCollection('499759')
-          .then(function(response) {
-            document.body.style.backgroundImage = 'url(' + response.urls.full + ')';
-          })
-      };
     }
   }
 };

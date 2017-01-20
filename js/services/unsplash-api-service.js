@@ -1,10 +1,19 @@
+// Unsplash API Service 
+// Used Unsplash API to get high quality free stock photos/images 
+//
+
 'use strict';
 
 UnsplashApiService.$inject = ['$http', '$q'];
 
 function UnsplashApiService($http, $q) {
   var _this = this;
-  var unsplashData = {};
+  var unsplashCachedData = {
+    dogs: {},
+    cats: {},
+    nature: {},
+    space: {},
+  };
 
   function apiCall(urlParam, objParam) {
     if (!objParam) {
@@ -16,29 +25,50 @@ function UnsplashApiService($http, $q) {
         objParam);
   }
 
-  _this.getRandomPhoto = function() {
+  _this.getRandomPhoto = function () {
     return apiCall('photos/random');
   };
 
-  _this.getRandomPhotosByCollection = function(collectionId) {
-    return apiCall('collections/' + collectionId + '/photos')
-      .then(function(response) {
-        console.log(response);
-        if (typeof response.data === 'object') {
-          var randomInt = Math.floor(Math.random() * (response.data.length - 0) + 0);
-                  
-          return response.data[randomInt];
-        } else {
+  _this.getRandomPhotosByCollection = function (collectionType) {
+    var keysForCollection = {
+      dogs: '499759',
+      nature: '508087',
+      space: '508084',
+      cats: '502072'
+    }
+    if (collectionType) {
+
+    }
+
+    if (angular.equals(unsplashCachedData[collectionType], {})) {
+      console.log('api call');
+      return apiCall('collections/' + keysForCollection[collectionType] + '/photos')
+        .then(function (response) {
+          unsplashCachedData[collectionType] = response;
+          return getRandomPhotoInCollection(response);
+        }, function (response) {
           console.log('getRandomPhotosByCollection error');
           return $q.reject(response.data);
+        });
+    } else {
+      console.log('cache call');
+      return getRandomPhotoInCollection(unsplashCachedData[collectionType]);
+    }
+
+    function getRandomPhotoInCollection(imagesArray) {
+      return $q(function(resolve, reject) {
+        if (typeof imagesArray.data === 'object') {
+          var randomInt = Math.floor(Math.random() * (imagesArray.data.length - 0) + 0);
+          resolve(imagesArray.data[randomInt]);
+        } else {
+          console.log('getRandomPhotosByCollection error');
+          reject($q.reject(imagesArray.data));
         }
-      }, function(response) {
-        console.log('getRandomPhotosByCollection error');
-        return $q.reject(response.data);
       });
+    }
+
   };
 
 };
 
 module.exports = UnsplashApiService;
-

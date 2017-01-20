@@ -24,6 +24,7 @@
     "angular-ui-router": "^0.3.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "grunt-webpack": "^1.0.18",
+    "html-loader": "^0.4.4",
     "webpack": "^1.14.0",
     "webpack-load-plugins": "^0.1.2"
   },

@@ -8,7 +8,6 @@ function StateRouting($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
-    // HOME STATES AND NESTED VIEWS ========================================
     .state('main', {
       url: '/',
       templateUrl: 'main_page/index-view.html',
