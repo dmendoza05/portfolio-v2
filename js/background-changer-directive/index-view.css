@@ -5,6 +5,10 @@ bg-changer {
 svg {
   cursor: pointer;
 }
+#bgc-icon-container {
+  width: 85px;
+  height: 85px;
+}
 .bgc-icon {
   line-height: 0;
   position: absolute;

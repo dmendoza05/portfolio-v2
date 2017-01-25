@@ -1,14 +1,14 @@
 'use strict';
 // SVG Icons are from Flaticon/Freepik
 
-bgChangerDirective.$inject = ['$http', 'UnsplashApiService'];
+bgChangerDirective.$inject = ['$http', '$compile', 'UnsplashApiService'];
 
-function bgChangerDirective($http, UnsplashApiService) {
+function bgChangerDirective($http, $compile, UnsplashApiService) {
   return {
     restrict: 'E',
     scope: 'true',
-    templateUrl: './js/background-changer-directive/index-view.html',
     css: './js/background-changer-directive/index-view.css',
+    templateUrl: './js/background-changer-directive/index-view.html',
     link: function (scope, el, attr) {
 
       var bgcIconContainer = document.getElementById('bgc-icon-container');
@@ -18,14 +18,7 @@ function bgChangerDirective($http, UnsplashApiService) {
       var containerWidth = 0;
       var counter = 0;
 
-      bgcIcons[0].classList.add('active');
-
-      for (var i = 0; i < bgcIcons.length; i++) {
-        containerWidth += bgcIcons[i].clientWidth;
-
-        bgcIconContainer.style.width = containerWidth + 'px';
-        bgcIconContainer.style.height = bgcIcons[i].clientHeight + 'px';
-      }
+      scope.creditData = {}
 
       function navigateIcons(num, direction) {
         bgcIcons[counter].classList.remove('active');
@@ -43,19 +36,33 @@ function bgChangerDirective($http, UnsplashApiService) {
         bgcIcons[counter].classList.add('active', 'from-' + direction);
       };
 
+      function gerRandomBackgroundOnload() {
+        var randomInt = Math.floor(Math.random() * (iconsLength - 0) + 0);
+        counter = randomInt;
+        bgcIcons[counter].classList.add('active');
+      };
+
       scope.changeBackground = function (category) {
         UnsplashApiService.getRandomPhotosByCollection(category)
-          .then(function(response) {
-            document.body.style.backgroundImage = 'url(' + response.urls.regular + ')';
+          .then(function (response) {
+            scope.imageData = response;
+            console.log(response);
+            document.body.style.backgroundImage = 'url(' + scope.imageData.urls.regular + ')';
+          })
+          .catch(function (error) {
+            console.log(error);
           })
       };
 
       scope.slideIconRight = function () {
         navigateIcons(-1, 'right');
       };
+
       scope.slideIconLeft = function () {
         navigateIcons(1, 'left');
       };
+
+      gerRandomBackgroundOnload();
     }
   }
 };

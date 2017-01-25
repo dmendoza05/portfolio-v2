@@ -12,4 +12,5 @@ angular
   .service('UnsplashApiService', require('./services/unsplash-api-service'))
   // directives
   .directive('navSquare', require('./nav-square-directive/index'))
-  .directive('bgChanger', require('./background-changer-directive/index'));
+  .directive('bgChanger', require('./background-changer-directive/index'))
+  .directive('photoCredits', require('./photo-credits-directive/index'));

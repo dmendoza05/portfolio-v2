@@ -6,8 +6,8 @@ function navSquareDirective($state, $http, UnsplashApiService) {
   return {
     restrict: 'E',
     scope: 'true',
-    templateUrl: './js/nav-square-directive/index-view.html',
     css: './js/nav-square-directive/index-view.css',
+    templateUrl: './js/nav-square-directive/index-view.html',
     link: function(scope, el, attr) {
 
       scope.hoveredItem = ''
