@@ -1,6 +1,8 @@
-<div class="pc-container">
+<div class="pc-container" ng-show="photoInfo" ng-hide="!photoInfo">
   <div class="pc-photographer">
-    <a href="{{photoghraperInfo.portfolio_url}}">{{photoghraperInfo.name}}</a>
+    <a href="{{photoInfo.user.links.html}}">
+      <img class="pc-pic" ng-src="{{photoInfo.user.profile_image.small}}">
+      <span class="pc-name" >{{photoInfo.user.first_name}} {{photoInfo.user.last_name}}</span>
+    </a>
   </div>
-  <div class="pc-photographer"></div>
 </div>

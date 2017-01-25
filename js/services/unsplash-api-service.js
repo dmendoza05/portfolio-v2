@@ -29,16 +29,7 @@ function UnsplashApiService($http, $rootScope, $q) {
   };
 
   function updateCurrentImage(newImageData){
-    console.log('newImageData', newImageData);
-    unsplashCachedData.currentPhoto = newImageData;
-    
-    if (!angular.equals(unsplashCachedData.currentPhoto, newImageData)) {
-      console.log('emit');
-      $rootScope.$broadcast('new photo');
-    } else {
-      console.log('broadcast');
-      $rootScope.$broadcast('old photo');
-    }
+    return unsplashCachedData.currentPhoto = newImageData;
   };
 
   _this.getRandomPhoto = function () {

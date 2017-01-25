@@ -10,12 +10,8 @@ function photoCreditsDirective($rootScope, UnsplashApiService) {
     templateUrl: './js/photo-credits-directive/index-view.html',
     css: './js/photo-credits-directive/index-view.css',
     link: function (scope, el, attr) {
-      scope.photoghraperInfo = UnsplashApiService.getCurrentPhoto();
-
       $rootScope.$on('new photo', function(){
-        console.log('on');
-        scope.photoghraperInfo = UnsplashApiService.getCurrentPhoto();
-        console.log(scope.photoghraperInfo)
+        scope.photoInfo = UnsplashApiService.getCurrentPhoto();
       });
     }
   }

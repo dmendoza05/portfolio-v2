@@ -1,3 +1,10 @@
+/* fonts */
+@font-face {
+    font-family: 'QUARZ974';
+    src: url('assets/fonts/Quarz974Light/Quarz974Light.woff') format('woff'), 
+         url('assets/fonts/Quarz974Light/Quarz974Light.woff2') format('woff2'), 
+         url('assets/fonts/Quarz974Light/Quarz974Light.ttf')  format('truetype');
+}
 /* base styles */
 
 *,
@@ -13,13 +20,15 @@ body {
 }
 
 body {
-  font-family: 'Permanent Marker', cursive;
-  background-color: #000;
+  font-family: 'QUARZ974', cursive;
+  font-weight: 900;
+  letter-spacing: 8px;
   overflow: hidden;
-}
-
-body{
+  background-color: #000;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+p {
+  padding-left: 8px;
 }

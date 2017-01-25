@@ -1,9 +1,9 @@
 'use strict';
 // SVG Icons are from Flaticon/Freepik
 
-bgChangerDirective.$inject = ['$http', '$compile', 'UnsplashApiService'];
+bgChangerDirective.$inject = ['$http', '$compile', '$rootScope', 'UnsplashApiService'];
 
-function bgChangerDirective($http, $compile, UnsplashApiService) {
+function bgChangerDirective($http, $compile, $rootScope, UnsplashApiService) {
   return {
     restrict: 'E',
     scope: 'true',
@@ -46,8 +46,8 @@ function bgChangerDirective($http, $compile, UnsplashApiService) {
         UnsplashApiService.getRandomPhotosByCollection(category)
           .then(function (response) {
             scope.imageData = response;
-            console.log(response);
             document.body.style.backgroundImage = 'url(' + scope.imageData.urls.regular + ')';
+            $rootScope.$broadcast('new photo');
           })
           .catch(function (error) {
             console.log(error);

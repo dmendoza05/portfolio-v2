@@ -1,0 +1,35 @@
+photo-credits {
+  display: block;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  color: #fff;
+}
+
+.pc-container {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  border: 5px solid #fff;
+}
+
+.pc-container a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+.pc-container a > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.pc-container .pc-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.pc-container .pc-name{
+  color: #fff;
+  text-decoration: none;
+}
