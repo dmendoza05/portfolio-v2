@@ -29,6 +29,13 @@ function StateRouting($stateProvider, $urlRouterProvider) {
       // controller: 'PortfolioController',
       // controllerAs: 'portfolioCtrl'
     })
+    // .state('background-viewer', {
+      // url: '/background-viewer',
+      // templateUrl: 'background-viewer/index-view.html',
+      // css: 'background-viewer/index-view.css',
+      // controller: 'PortfolioController',
+      // controllerAs: 'portfolioCtrl'
+    // })
     // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
     // .state('about', {
       // we'll get to this in a bit       

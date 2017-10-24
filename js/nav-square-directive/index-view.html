@@ -1,26 +1,26 @@
 <nav ng-class="hoveredItem">
-  <div class="nav-item" ng-click="goToPage('main')">
+  <div class="nav-item" ui-sref-active="active" ui-sref="main">
     <div class="nav-item-content-container" ng-mouseenter="hover('hovering-top')" ng-mouseleave="leaveHover()">
       <div class="nav-item-content">
         <p>DM</p>
       </div>
     </div>
   </div>
-  <div class="nav-item" ng-click="goToPage('resume')">
+  <div class="nav-item" ui-sref-active="active" ui-sref="resume">
     <div class="nav-item-content-container" ng-mouseenter="hover('hovering-right')" ng-mouseleave="leaveHover()">
       <div class="nav-item-content">
         <p>Resume</p>
       </div>
     </div>
   </div>
-  <div class="nav-item" ng-click="goToPage('portfolio')">
+  <div class="nav-item" ui-sref-active="active" ui-sref="portfolio">
     <div class="nav-item-content-container" ng-mouseenter="hover('hovering-left')" ng-mouseleave="leaveHover()">
       <div class="nav-item-content">
         <p>Portfolio</p>
       </div>
     </div>
   </div>
-  <div class="nav-item">
+  <div class="nav-item" ui-sref-active="background-viewer">
     <div class="nav-item-content-container" ng-mouseenter="hover('hovering-bottom')" ng-mouseleave="leaveHover()">
       <div class="nav-item-content">
         <bg-changer></bg-changer>

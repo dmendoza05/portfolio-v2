@@ -22,6 +22,8 @@ function navSquareDirective($state, $http, UnsplashApiService) {
       scope.goToPage = function(page) {
         $state.go(page);
       };
+
+      
     }
   }
 };

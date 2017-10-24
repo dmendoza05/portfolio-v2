@@ -39,7 +39,7 @@ nav {
 .nav-item-content-container:hover  {
   width: 100%;
   height: 100%;
-  animation: flash 0.2s;
+  animation: flash 0.2s forwards;
 }
 
 .nav-item-content-container > .nav-item-content {
@@ -129,8 +129,31 @@ nav {
     box-shadow: 1px 1px 60px #fff;
   }
   100% {
-    box-shadow: 1px 1px 1px #fff;
+    box-shadow: 1px 1px 15px #fff;
   }
 }
 
 
+/*.bgc-prev,
+.bgc-next {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.bgc-prev {
+  transform: translate(-185%, -50%);
+}
+
+.bgc-next {
+  transform: translate(215%, -50%);
+  transition: all 1s; 
+}
+.nav-item-content-container:hover .bgc-next {
+  transform: translate(85%, -50%);
+}
+.nav-item-content-container:hover .bgc-next {
+  transform: translate(85%, -50%);
+}*/

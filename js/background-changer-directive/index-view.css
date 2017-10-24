@@ -2,58 +2,149 @@ bg-changer {
   display: block;
   position: relative;
 }
+
 svg {
   cursor: pointer;
 }
+
 #bgc-icon-container {
-  width: 85px;
-  height: 85px;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  flex-wrap: wrap;
+  transform: rotate(45deg);
+  transition: width 0.3s, height 0.3s;
 }
-.bgc-icon {
+
+.show-selection #bgc-icon-container {
+  width: 140px;
+  height: 140px;
+}
+
+.bgc-category-icon {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  top: auto;
+  left: auto;
+  align-items: center;
+  transform: rotate(-45deg);
+  transition: margin 0.3s;
+}
+
+.bgc-category-icon:first-child {
+  margin: 0 170px 170px 0px;
+}
+
+.bgc-category-icon:last-child {
+  margin: 0 0 0 170px;
+}
+
+.show-selection .bgc-category-icon:first-child {
+  margin: 0 50px 50px 0px;
+}
+
+.show-selection .bgc-category-icon:last-child {
+  margin: 0 0 0 50px;
+}
+
+.bgc-category-icon svg {
+  width: 45px;
+  height: 45px;
+}
+
+
+/*.bgc-category-icon {
   line-height: 0;
   position: absolute;
   top: 200%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0%);
+  transition: all 0.5s;
+}*/
+
+.nav-item-content-container:hover .bgc-category-icon {
+  /*transform: translate(-50%, -10%);*/
 }
+
 .bgc-icon.active {
-  line-height: 0;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  /*top: 0;*/
 }
+
 .bgc-icon.to-right {
   animation: slideRight 0.5s;
 }
-.bgc-prev, .bgc-next {
+
+.bgc-left,
+.bgc-right {
   width: 50px;
   height: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
+  transition: all 0.5s;
 }
-.bgc-prev {
+
+.bgc-left {
+  transform: translate(-315%, -50%);
+}
+
+.bgc-right {
+  transform: translate(215%, -50%);
+}
+
+.nav-item-content-container:hover .has-selected:not(.show-selection) .bgc-left {
   transform: translate(-185%, -50%);
 }
-.bgc-next {
+
+.nav-item-content-container:hover .has-selected:not(.show-selection) .bgc-right {
   transform: translate(85%, -50%);
 }
-.bgc-prev svg,  
-.bgc-next svg {
-  height: 80%;
-  width: 80%;
+
+.bgc-selection {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  transform: rotate(90deg);
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: all 0.5s;
+}
+
+.nav-item-content-container:hover  {
+
+}
+.nav-item-content-container:hover .show-selection .bgc-selection {
+  bottom: -50px;
+}
+.bgc-left svg,
+.bgc-right svg {
+  height: 75%;
+  width: 75%;
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
 }
-.bgc-prev svg {
+
+.bgc-left svg {
   left: 0;
 }
-.bgc-next svg {
+
+.bgc-right svg {
   right: 0;
 }
+
+.bgc-selection svg {
+  margin: auto;
+  display: block;
+}
+
+
+/* animation keyframes */
+
 @keyframes slideRight {
   0% {
     left: 50%;

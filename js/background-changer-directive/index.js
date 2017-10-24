@@ -10,9 +10,12 @@ function bgChangerDirective($http, $compile, $rootScope, UnsplashApiService) {
     css: './js/background-changer-directive/index-view.css',
     templateUrl: './js/background-changer-directive/index-view.html',
     link: function (scope, el, attr) {
+      console.log('el', el);
+      console.log('attr', attr);
 
       var bgcIconContainer = document.getElementById('bgc-icon-container');
       var bgcIcons = document.getElementsByClassName('bgc-icon');
+      var bgcControlContainer = document.getElementById('bgc-control-container');
 
       var iconsLength = bgcIcons.length;
       var containerWidth = 0;
@@ -43,6 +46,9 @@ function bgChangerDirective($http, $compile, $rootScope, UnsplashApiService) {
       };
 
       scope.changeBackground = function (category) {
+        console.log('changed background');
+        el.addClass('has-selected');
+        el.toggleClass('show-selection');
         UnsplashApiService.getRandomPhotosByCollection(category)
           .then(function (response) {
             scope.imageData = response;
@@ -55,14 +61,22 @@ function bgChangerDirective($http, $compile, $rootScope, UnsplashApiService) {
       };
 
       scope.slideIconRight = function () {
-        navigateIcons(-1, 'right');
+        // navigateIcons(-1, 'right');
       };
 
       scope.slideIconLeft = function () {
-        navigateIcons(1, 'left');
+        // navigateIcons(1, 'left');
       };
 
-      gerRandomBackgroundOnload();
+      scope.showSelection = function () {
+        el.toggleClass('show-selection');
+      };
+
+      // gerRandomBackgroundOnload();
+
+      el.on('mouseenter', function() {
+        console.log('xxxxx');
+      })
     }
   }
 };
